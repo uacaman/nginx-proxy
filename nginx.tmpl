@@ -200,8 +200,6 @@ error_log /dev/stderr;
 resolver {{ $.Env.RESOLVERS }};
 {{ end }}
 
-include /etc/nginx/proxy.conf;
-
 {{ $access_log := (or (and (not $.Env.DISABLE_ACCESS_LOGS) "access_log /var/log/nginx/access.log vhost;") "") }}
 
 {{ $enable_ipv6 := eq (or ($.Env.ENABLE_IPV6) "") "true" }}
